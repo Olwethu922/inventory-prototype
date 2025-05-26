@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>⏰ Expiry Alert Report</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    .expiring {
+      background-color: #fff3cd;
+      color: #856404;
+      font-weight: bold;
+    }
+    h2, p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>⏰ Expiry Alert Report</h2>
+    <p>Items expiring within 3 days are highlighted. Prioritize sale or removal.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Stock Item</th>
+          <th>Batch No.</th>
+          <th>Expiry Date</th>
+          <th>Current Qty (kg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="expiring">
+          <td>Chicken Fillets</td>
+          <td>CF020</td>
+          <td>2025-05-22</td>
+          <td>6.0</td>
+        </tr>
+        <tr>
+          <td>Beef Ribs</td>
+          <td>BR109</td>
+          <td>2025-05-27</td>
+          <td>10.0</td>
+        </tr>
+        <tr class="expiring">
+          <td>Pork Sausages</td>
+          <td>PS042</td>
+          <td>2025-05-21</td>
+          <td>2.5</td>
+        </tr>
+        <tr>
+          <td>Boerewors</td>
+          <td>BW056</td>
+          <td>2025-05-30</td>
+          <td>8.0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 30px; text-align: center;">
+      <a href="exception-reports.html"><button class="btn secondary">⬅ Back to Exception Reports</button></a>
+    </div>
+  </div>
+</body>
+</html>

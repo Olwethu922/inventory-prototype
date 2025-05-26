@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Stock Items</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>📋 Confirm All Stock Entries</h2>
+
+    <!-- Table for add or update -->
+    <table border="1" width="100%" id="summaryTable">
+      <thead id="tableHead">
+        <!-- We'll inject this via JS -->
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div style="margin-top: 20px;">
+      <button class="btn primary" onclick="finalizeAction()">✅ Confirm All</button>
+      <button class="btn secondary" onclick="window.history.back()">⬅ Go Back</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Load confirmation table after page loads
+    window.onload = loadConfirmationTable;
+  </script>
+</body>
+</html>
