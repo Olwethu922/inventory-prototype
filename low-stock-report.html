@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📉 Low Stock Report</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    .low {
+      background-color: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+    }
+    h2, p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>📉 Low Stock Report</h2>
+    <p>Items below 5kg are highlighted. Review and reorder urgently.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Stock Item</th>
+          <th>Current Qty (kg)</th>
+          <th>Batch No.</th>
+          <th>Last Restocked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="low">
+          <td>Beef Mince</td>
+          <td>3.5</td>
+          <td>BM128</td>
+          <td>2025-05-18</td>
+        </tr>
+        <tr class="low">
+          <td>Chicken Wings</td>
+          <td>2.0</td>
+          <td>CW021</td>
+          <td>2025-05-19</td>
+        </tr>
+        <tr>
+          <td>Boerewors</td>
+          <td>7.2</td>
+          <td>BW055</td>
+          <td>2025-05-16</td>
+        </tr>
+        <tr class="low">
+          <td>Pork Chops</td>
+          <td>4.0</td>
+          <td>PC011</td>
+          <td>2025-05-17</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 30px; text-align: center;">
+      <a href="exception-reports.html"><button class="btn secondary">⬅ Back to Exception Reports</button></a>
+    </div>
+  </div>
+</body>
+</html>

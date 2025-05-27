@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Stock Items</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .form-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 25px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn.secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn.secondary:hover {
+      background-color: #5a6268;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>📋 Confirm All Stock Entries</h2>
+
+    <table id="summaryTable">
+      <thead id="tableHead"></thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="btn-group">
+      <button class="btn primary" onclick="finalizeAction()">✅ Confirm All</button>
+      <button class="btn secondary" onclick="window.history.back()">⬅ Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    let currentAction = "add"; // default
+    let stockEntries = [];
+
+    function loadConfirmationTable() {
+      const tableHead = document.getElementById("tableHead");
+      const tableBody = document.querySelector("#summaryTable tbody");
+
+      tableHead.innerHTML = "";
+      tableBody.innerHTML = "";
+
+      // Get both lists
+      const added = JSON.parse(localStorage.getItem("stockEntries")) || [];
+      const updated = JSON.parse(localStorage.getItem("updatedStockEntries")) || [];
+
+      // If update entries exist, it's an update action
+      if (updated.length > 0) {
+        currentAction = "update";
+        stockEntries = updated;
+      } else {
+        currentAction = "add";
+        stockEntries = added;
+      }
+
+      const headers = currentAction === "add"
+        ? ["Supplier", "Delivery Date", "Stock Item", "Batch No.", "Quantity (kg)", "Processing Date", "Expiry Date"]
+        : ["Stock Item", "Batch No.", "Quantity (kg)", "Processing Date", "Expiry Date"];
+
+      const headerRow = document.createElement("tr");
+      headers.forEach((heading) => {
+        const th = document.createElement("th");
+        th.textContent = heading;
+        headerRow.appendChild(th);
+      });
+      tableHead.appendChild(headerRow);
+
+      // Now add rows based on action type
+      stockEntries.forEach((entry) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = currentAction === "add" ? `
+          <td>${entry.supplier}</td>
+          <td>${entry.deliveryDate}</td>
+          <td>${entry.stockItem}</td>
+          <td>${entry.batchNumber}</td>
+          <td>${entry.quantity}</td>
+          <td>${entry.processingDate}</td>
+          <td>${entry.expiryDate}</td>
+        ` : `
+          <td>${entry.stockItem}</td>
+          <td>${entry.batchNumber}</td>
+          <td>${entry.quantity}</td>
+          <td>${entry.processingDate}</td>
+          <td>${entry.expiryDate}</td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    function finalizeAction() {
+      if (currentAction === "update") {
+        localStorage.removeItem("updatedStockEntries");
+        window.location.href = "update-success.html";
+      } else {
+        localStorage.removeItem("stockEntries");
+        window.location.href = "add-success.html";
+      }
+    }
+
+    window.onload = loadConfirmationTable;
+  </script>
+</body>
+</html>
