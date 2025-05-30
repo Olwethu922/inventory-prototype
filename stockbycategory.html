@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🔍 Stock by Category</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    h2, p {
+      text-align: center;
+    }
+
+    .category-box {
+      background-color: #f8f9fa;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+
+    .category-header {
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .stock-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .stock-table th, .stock-table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .category-box.open .stock-table {
+      display: table;
+    }
+
+    .bottom-right {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .btn-small {
+      padding: 8px 14px;
+      font-size: 14px;
+      border-radius: 8px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-small:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>🔍 Stock by Category</h2>
+    <p>Click a category to view batch-level stock details.</p>
+
+    <div class="category-box" onclick="toggleTable(this)">
+      <div class="category-header">🥩 Lamb & Mutton</div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Stock Item</th>
+            <th>Batch No.</th>
+            <th>Quantity (kg)</th>
+            <th>Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Lamb Chops</td><td>LC020</td><td>22.0</td><td>2025-06-16</td></tr>
+          <tr><td>Mutton Ribs</td><td>MR220</td><td>19.5</td><td>2025-06-30</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- POULTRY -->
+    <div class="category-box" onclick="toggleTable(this)">
+      <div class="category-header">🐔 Poultry</div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Stock Item</th>
+            <th>Batch No.</th>
+            <th>Quantity (kg)</th>
+            <th>Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Chicken Fillets</td><td>CF101</td><td>15.0</td><td>2025-06-27</td></tr>
+          <tr><td>Chicken Wings</td><td>CW088</td><td>10.0</td><td>2025-06-26</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PORK -->
+    <div class="category-box" onclick="toggleTable(this)">
+      <div class="category-header">🦀 Seafood</div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Stock Item</th>
+            <th>Batch No.</th>
+            <th>Quantity (kg)</th>
+            <th>Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Natal Pink Prawns</td><td>NPP121</td><td>7.0</td><td>2025-06-23</td></tr>
+          <tr><td>Natal Orange Crab</td><td>NOC042</td><td>4.0</td><td>2025-06-17</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SAUSAGES -->
+    <div class="category-box" onclick="toggleTable(this)">
+      <div class="category-header">🍅🥭Fruits & Veg</div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Stock Item</th>
+            <th>Batch No.</th>
+            <th>Quantity (kg)</th>
+            <th>Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jam Tomatoes</td><td>JT055</td><td>16.5</td><td>2025-06-08</td></tr>
+          <tr><td>Green Mangos</td><td>GM087</td><td>14.5</td><td>2025-06-39</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bottom-right">
+    <a href="drilldown-reports.html"><button class="btn-small">⬅ Back</button></a>
+  </div>
+
+  <script>
+    function toggleTable(container) {
+      container.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

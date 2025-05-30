@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Stock - B Nagiah Inventory</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #25303b;
+    }
+
+    .category {
+      margin-bottom: 20px;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .category-header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .category-content {
+      display: none;
+      background: #f9f9f9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #e9ecef;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .bottom-right {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .btn.small {
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn.small:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Real-Time Stock Tracking</h1>
+
+    
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🥩 Mutton</div>
+      <div class="category-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Mutton Chops</td><td>MC-102</td><td>18</td><td>2025-05-10</td><td>2025-06-10</td></tr>
+            <tr><td>Mutton Stew</td><td>MS-221</td><td>25</td><td>2025-05-12</td><td>2025-06-12</td></tr>
+            <tr><td>Mutton Mince</td><td>MM-333</td><td>12</td><td>2025-05-14</td><td>2025-06-14</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🐑 Lamb</div>
+      <div class="category-content">
+        <table>
+            <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>Lamb Ribs</td><td>LR-111</td><td>15</td><td>2025-05-08</td><td>2025-06-08</td></tr>
+          <tr><td>Lamb Chops</td><td>LC-234</td><td>20</td><td>2025-05-09</td><td>2025-06-09</td></tr>
+          <tr><td>Lamb Shoulder</td><td>LS-897</td><td>17</td><td>2025-05-15</td><td>2025-06-15</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🦐 Seafood</div>
+      <div class="category-content">
+        <table>
+            <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>King Prawns</td><td>KP-501</td><td>10</td><td>2025-05-05</td><td>2025-06-01</td></tr>
+          <tr><td>Hake Fillets</td><td>HF-304</td><td>22</td><td>2025-05-07</td><td>2025-06-05</td></tr>
+          <tr><td>Calamari Rings</td><td>CR-678</td><td>18</td><td>2025-05-11</td><td>2025-06-07</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🐔 Poultry</div>
+      <div class="category-content">
+        <table>
+            <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>Chicken Wings</td><td>CW-111</td><td>30</td><td>2025-05-03</td><td>2025-06-03</td></tr>
+          <tr><td>Chicken Fillets</td><td>CF-222</td><td>40</td><td>2025-05-06</td><td>2025-06-06</td></tr>
+          <tr><td>Duck Legs</td><td>DL-303</td><td>15</td><td>2025-05-13</td><td>2025-06-13</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🍎 Fruits</div>
+      <div class="category-content">
+        <table>
+            <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>Apples</td><td>FRT-101</td><td>50</td><td>2025-05-01</td><td>2025-05-20</td></tr>
+          <tr><td>Bananas</td><td>FRT-102</td><td>35</td><td>2025-05-04</td><td>2025-05-18</td></tr>
+          <tr><td>Oranges</td><td>FRT-103</td><td>45</td><td>2025-05-06</td><td>2025-05-22</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-header" onclick="toggleContent(this)">🥦 Vegetables</div>
+      <div class="category-content">
+        <table>
+            <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Batch No.</th>
+              <th>Quantity (kg)</th>
+              <th>Processing Date</th>
+              <th>Expiry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>Broccoli</td><td>VEG-100</td><td>20</td><td>2025-05-02</td><td>2025-05-17</td></tr>
+          <tr><td>Spinach</td><td>VEG-200</td><td>30</td><td>2025-05-06</td><td>2025-05-20</td></tr>
+          <tr><td>Carrots</td><td>VEG-300</td><td>25</td><td>2025-05-08</td><td>2025-05-23</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bottom-right">
+      <a href="menu.html"><button class="btn small">← Back</button></a>
+    </div>
+  </div>
+
+  <script>
+    function toggleContent(header) {
+      const content = header.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
